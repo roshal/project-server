@@ -1,9 +1,10 @@
-import p__express from 'express'
+import p__koa_router from 'koa-router'
 //
 import m__resources_users from '../../resources/resource-users'
 //
-const router = p__express.Router()
-router.all(/^\/$/,
+const router =  new p__koa_router()
+router.all(
+	'/',
 	async (request, response) => {
 		const dictionary = m__resources_users
 		try {
