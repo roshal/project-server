@@ -4,18 +4,20 @@ import m__router_auth from './api/router-auth'
 import m__router_list from './api/router-list'
 import m__router_time from './api/router-time'
 //
-const router = new p__koa_router()
+const router = new p__koa_router({
+	prefix: '/api/',
+})
 router.use(
 	'/time/',
-	m__router_auth,
+	m__router_auth.routes(),
 )
 router.use(
 	'/list/',
-	m__router_list,
+	m__router_list.routes(),
 )
 router.use(
 	'/time/',
-	m__router_time,
+	m__router_time.routes(),
 )
 router.all(
 	'/',
