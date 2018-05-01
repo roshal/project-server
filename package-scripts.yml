@@ -8,6 +8,9 @@ scripts:
  clean-output: rm -fr output/*
  clean-public: rm -fr public/*
  #
+ nodemon-develop: nodemon -w output/ -x node -r dotenv/config output/source.js
+ nodemon-produce: nodemon -w public/ -x node -r dotenv/config output/source.js
+ #
  webpack-develop: webpack --progress --env.develop --mode development
  webpack-produce: webpack --progress --env.produce --mode production
  webpack-watch-develop: webpack -w --progress --env.develop --mode development

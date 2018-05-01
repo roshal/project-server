@@ -1,4 +1,5 @@
 import p__fs from 'fs'
+import p__webpack_node_externals from 'webpack-node-externals'
 import {
 	join as p__path__join,
 } from 'path'
@@ -30,6 +31,8 @@ export default () => {
 			],
 		},
 		target: 'node',
-		externals: node_modules,
+		externals: [
+			p__webpack_node_externals(),
+		],
 	}
 }
