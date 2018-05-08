@@ -4,7 +4,7 @@ import m__resources_table from '../../resources/resource-table'
 //
 const router =  new p__koa_router()
 router.all(
-	'/',
+	'',
 	async (request, response) => {
 		const dictionary = m__resources_table
 		try {

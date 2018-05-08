@@ -25,6 +25,14 @@ export default () => {
 			chunkFilename: 'chunks/[id].js',
 			filename: '[name].js',
 		},
+		resolve: {
+			extensions: [
+				'.js',
+			],
+			modules: [
+				p__path__join(__dirname, '..', 'node_modules'),
+			],
+		},
 		resolveLoader: {
 			moduleExtensions: [
 				'-' + 'loader',

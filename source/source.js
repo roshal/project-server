@@ -4,17 +4,16 @@ import p__koa_router from 'koa-router'
 import m__router_api from './routers/router-api'
 //
 const router = new p__koa_router({
-	//prefix: '/',
+	prefix: '/qwe',
 })
 router.use(
-	'/api/',
+	'api/',
 	m__router_api.routes(),
 )
 router.all(
 	'/',
-	(context, next) => {
-		context.bode = 'text'
-		next()
+	(context) => {
+		context.body = '/'
 	},
 )
 const koa = new p__koa()
@@ -24,3 +23,4 @@ koa.use(
 koa.listen(process.env.PORT, function () {
 	console.log('port', this.address().port)
 })
+console.log(router)

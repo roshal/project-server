@@ -5,24 +5,24 @@ import m__router_list from './api/router-list'
 import m__router_time from './api/router-time'
 //
 const router = new p__koa_router({
-	prefix: '/api/',
+	//prefix: '/',
 })
 router.use(
-	'/time/',
+	'auth/',
 	m__router_auth.routes(),
 )
 router.use(
-	'/list/',
+	'list/',
 	m__router_list.routes(),
 )
 router.use(
-	'/time/',
+	'time/',
 	m__router_time.routes(),
 )
 router.all(
-	'/',
+	'',
 	(context) => {
-		context.bode = 'text'
+		context.body = '/api/'
 	},
 )
 //
