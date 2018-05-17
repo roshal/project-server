@@ -8,22 +8,23 @@ const router = new p__koa_router({
 	//prefix: '/',
 })
 router.use(
-	'auth/',
+	'/auth',
 	m__router_auth.routes(),
 )
 router.use(
-	'list/',
+	'/list',
 	m__router_list.routes(),
 )
 router.use(
-	'time/',
+	'/time',
 	m__router_time.routes(),
 )
 router.all(
-	'',
+	'/',
 	(context) => {
 		context.body = '/api/'
 	},
 )
 //
 export default router
+

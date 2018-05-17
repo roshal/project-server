@@ -25,9 +25,10 @@ export default (env) => {
 						{
 							loader: 'babel',
 							options: {
-								plugins: env.produce ? [
-									'lodash',
-								] : [],
+								babelrc: false,
+								plugins: [
+									'transform-runtime',
+								],
 								presets: [
 									'env',
 									'flow',
@@ -41,14 +42,16 @@ export default (env) => {
 		},
 		plugins: [
 			new p__lodash_webpack_plugin(),
-			...env.produce ? [new p__uglifyjs_webpack_plugin({
-				uglifyOptions: {
-					output: {
-						comments: false,
+			...env.produce ? [
+				new p__uglifyjs_webpack_plugin({
+					uglifyOptions: {
+						output: {
+							comments: false,
+						},
+						toplevel: true,
 					},
-					toplevel: true,
-				},
-			})] : [],
+				}),
+			] : [],
 		],
 	}
 }

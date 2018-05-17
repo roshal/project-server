@@ -4,7 +4,7 @@ import m__providers_postgresql from '../../providers/provider-postgresql'
 //
 const router =  new p__koa_router()
 router.all(
-	'',
+	'/',
 	async (context) => {
 		try {
 			const query = await m__providers_postgresql.query(

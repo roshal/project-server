@@ -4,16 +4,17 @@ import p__koa_router from 'koa-router'
 import m__router_api from './routers/router-api'
 //
 const router = new p__koa_router({
-	prefix: '/qwe',
+	prefix: '/api',
 })
-router.use(
-	'api/',
-	m__router_api.routes(),
-)
+//router.use(
+//	'/api',
+//	m__router_api.routes(),
+//)
 router.all(
-	'/',
-	(context) => {
-		context.body = '/'
+	/^\/api\/$/,
+	async (context, next) => {
+		context.response.body = context.request.url
+		await next()
 	},
 )
 const koa = new p__koa()
